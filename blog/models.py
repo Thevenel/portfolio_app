@@ -10,3 +10,9 @@ class BlogPost(models.Model):
     pub_date = datetime.now()
     content = models.TextField()
     blog_img = models.ImageField(upload_to='blog-images/')
+
+    def summary(self):
+        return self.content[:200]
+
+    def format_date(self):
+        return self.pub_date.strftime('%B %e, %Y')
