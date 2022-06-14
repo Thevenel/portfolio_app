@@ -11,6 +11,10 @@ class BlogPost(models.Model):
     content = models.TextField()
     blog_img = models.ImageField(upload_to='blog-images/')
 
+    def __str__(self):
+        return self.title
+
+
     def summary(self):
         return self.content[:200]
 
